@@ -1,0 +1,56 @@
+.button {
+    margin-bottom: 20px;
+    width: 100%;
+    cursor: pointer;
+    --background: #383f54;
+    --text: #fff;
+    --hover-background: #fff;
+    --hover-text: #383f54;
+    --font-size: 14px;
+    --duration: 0.3s;
+    --move-hover: -4px;
+    --font-shadow: var(--font-size);
+    padding: 14px;
+    font-weight: 500;
+    line-height: var(--font-size);
+    border-radius: 20px;
+    display: block;
+    outline: none;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    font-size: var(--font-size);
+    letter-spacing: 0.5px;
+    background: var(--background);
+    color: var(--text);
+    transform: translateY(var(--y)) translateZ(0);
+    transition: transform var(--duration) ease, box-shadow var(--duration) ease,
+        background-color var(--duration) ease, color var(--duration) ease;
+    div {
+        display: flex;
+        overflow: hidden;
+    }
+    &:hover {
+        --y: var(--move-hover);
+        --shadow: var(--shadow-hover);
+        background: var(--hover-background);
+        color: var(--hover-text);
+        span {
+            --m: calc(var(--font-size) * -1);
+        }
+    }
+}
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+li {
+    flex: 1;
+}
