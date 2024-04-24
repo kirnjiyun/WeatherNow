@@ -6,21 +6,22 @@ import useCityWeather from "../../hooks/useCityWeather";
 import { ClipLoader } from "react-spinners";
 
 const WeatherInfo = ({ selectedCity, setLoading }) => {
-    useEffect(() => {
-        setLoading(loading);
-    }, [setLoading]);
-
     const { lat, lon } = useLocation();
     const [weather, weatherLoading] = useWeather(lat, lon);
     const [city, cityLoading] = useCityWeather(selectedCity);
+
     const loading = cityLoading || weatherLoading;
+
+    useEffect(() => {
+        setLoading(loading);
+    }, [loading, setLoading]);
+
     const currentWeather = selectedCity ? city : weather;
     const weatherInfoExists =
         currentWeather &&
         currentWeather.weather &&
         currentWeather.weather.length > 0;
     const iconCode = weatherInfoExists ? currentWeather.weather[0].icon : "";
-
     const iconUrl = iconCode
         ? `http://openweathermap.org/img/wn/${iconCode}@4x.png`
         : "";

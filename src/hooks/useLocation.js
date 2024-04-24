@@ -1,25 +1,37 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const useLocation = () => {
-    const [location, setLocation] = useState({ lat: 0, lon: 0 });
-
-    useEffect(() => {
-        const getCurrentLocation = () => {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    setLocation({ lat, lon });
-                },
-                (error) => {
-                    console.error("Geolocation failed:", error);
-                }
+    const fetchLocation = async () => {
+        try {
+            const response = await axios.post(
+                "https://www.googleapis.com/geolocation/v1/geolocate?key=YOUR_API_KEY"
             );
-        };
-        getCurrentLocation();
-    }, []);
+            const { location } = response.data;
+            return {
+                lat: location.lat,
+                lon: location.lng,
+            };
+        } catch (error) {
+            console.error("Geolocation failed:", error);
+            throw error;
+        }
+    };
 
-    return location;
+    const {
+        data: location,
+        isLoading,
+        error,
+    } = useQuery(["location"], fetchLocation);
+
+    if (error) {
+        console.error("Geolocation query failed:", error);
+    }
+
+    return {
+        location,
+        isLoading,
+    };
 };
+
 export default useLocation;
