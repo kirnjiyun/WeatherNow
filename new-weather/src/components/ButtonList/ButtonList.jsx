@@ -1,7 +1,7 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
 import styles from "./ButtonList.module.css";
-import { modalOpenState } from "../atom";
+import { modalOpenState } from "../../atom";
 
 const ButtonList = () => {
     const setOpenModal = useSetRecoilState(modalOpenState);
