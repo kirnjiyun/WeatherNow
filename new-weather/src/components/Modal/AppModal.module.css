@@ -1,0 +1,100 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 85%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+}
+
+.modalTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modalText {
+    margin-bottom: 20px;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.searchContainer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.button {
+    width: fit-content;
+    text-wrap: nowrap;
+    cursor: pointer;
+    --background: #383f54;
+    --text: #fff;
+    --hover-background: #fff;
+    --hover-text: #383f54;
+    --font-size: 14px;
+    --duration: 0.3s;
+    --move-hover: -4px;
+    --font-shadow: var(--font-size);
+    padding: 15px 10px;
+    font-weight: 500;
+    line-height: var(--font-size);
+    border-radius: 20px;
+    display: block;
+    outline: none;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    font-size: var(--font-size);
+    letter-spacing: 0.5px;
+    background: var(--background);
+    color: var(--text);
+    transform: translateY(var(--y)) translateZ(0);
+    transition: transform var(--duration) ease, box-shadow var(--duration) ease,
+        background-color var(--duration) ease, color var(--duration) ease;
+    div {
+        display: flex;
+        overflow: hidden;
+    }
+    &:hover {
+        --y: var(--move-hover);
+        --shadow: var(--shadow-hover);
+        background: var(--hover-background);
+        color: var(--hover-text);
+        span {
+            --m: calc(var(--font-size) * -1);
+        }
+    }
+}

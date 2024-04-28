@@ -1,26 +1,54 @@
 import React, { useState } from "react";
+import { useRecoilState } from "recoil";
 import Modal from "react-modal";
+import { modalOpenState } from "../../atom";
+import styles from "./AppModal.module.css";
 
 const AddModal = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const openModal = () => {
-        setIsOpen(true);
-    };
+    const [ModalOpen, setOpenModal] = useRecoilState(modalOpenState);
+    const [searchText, setSearchText] = useState("");
 
     const closeModal = () => {
-        setIsOpen(false);
+        setOpenModal(false);
+    };
+
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    const handleSearch = () => {
+        console.log("검색어:", searchText);
     };
 
     return (
-        <div>
-            <button onClick={openModal}>Open Modal</button>
-            <Modal isOpen={isOpen} onRequestClose={closeModal}>
-                <h2>Modal Title</h2>
-                <p>Modal Content</p>
-                <button onClick={closeModal}>Close Modal</button>
-            </Modal>
-        </div>
+        <Modal
+            isOpen={ModalOpen}
+            onRequestClose={closeModal}
+            className={styles.modalContent}
+            overlayClassName={styles.modalOverlay}
+        >
+            <h2 className={styles.modalTitle}>Search </h2>
+            <div className={styles.searchContainer}>
+                <input
+                    type="text"
+                    className={styles.searchInput}
+                    placeholder="ex) Seoul"
+                    value={searchText}
+                    onChange={handleSearchChange}
+                />
+                <button className={styles.button} onClick={handleSearch}>
+                    Search
+                </button>
+            </div>
+            <p className={styles.modalText}>
+                Modal ContentModal ContentModal ContentModal ContentModal
+                ContentModal ContentModal ContentModal ContentModal ContentModal
+                ContentModal ContentModal ContentModal ContentModal Content
+            </p>
+            <button className={styles.closeButton} onClick={closeModal}>
+                &times;
+            </button>
+        </Modal>
     );
 };
 
