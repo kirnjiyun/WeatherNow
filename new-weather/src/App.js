@@ -8,12 +8,12 @@ import WeatherStatus from "./components/WeatherStatus/WeatherStatus";
 export default function App() {
     return (
         <div className={styles.container}>
-            <h1>
-                <Location />
-            </h1>
             <div>
                 <WeatherStatus />
             </div>
+            <h1>
+                <Location />
+            </h1>
             <div>
                 <ButtonList />
             </div>

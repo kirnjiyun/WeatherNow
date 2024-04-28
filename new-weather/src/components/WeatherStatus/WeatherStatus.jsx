@@ -9,14 +9,7 @@ export default function WeatherStatus() {
 
     if (isLoading) {
         return (
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100vh",
-                }}
-            >
+            <div>
                 <Loading />
             </div>
         );
@@ -37,13 +30,18 @@ export default function WeatherStatus() {
 
     return (
         <div className={styles.statusContainer}>
-            <h2>Current Weather in {cityName}</h2>
+            <h2>
+                Current Weather in
+                <br />
+                <span> {cityName}</span>
+            </h2>
             <img
+                className={styles.weatherIcon}
                 src={`https://openweathermap.org/img/wn/${weatherIcon}@4x.png`}
                 alt="Weather Icon"
             />
-            <p>Temperature: {temperature}°C</p>
-            <p>Description: {weatherDescription}</p>
+            <p className={styles.temp}>{temperature.toFixed(1)}°C</p>
+            <p className={styles.weather}>{weatherDescription}</p>
         </div>
     );
 }

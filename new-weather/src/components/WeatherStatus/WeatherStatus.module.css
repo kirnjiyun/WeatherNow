@@ -1,4 +1,50 @@
 .statusContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    font-size: 30px;
+    color: #383f54;
+    --text-shadow-color: #ffffff;
+    text-shadow: 1px -1px 0 var(--text-shadow-color),
+        1px 1px 0 var(--text-shadow-color), -1px -1px 0 var(--text-shadow-color),
+        -1px 1px 0 var(--text-shadow-color);
+    margin-bottom: 10px;
+}
+h2 > span {
+    display: block;
+    width: fit-content;
+    margin: 10px auto 0;
+    font-size: 40px;
+    color: #383f54;
+    --text-shadow-color: rgb(255, 255, 255, 0.8);
+    text-shadow: 1px -1px 10px var(--text-shadow-color),
+        1px 1px 10px var(--text-shadow-color),
+        -1px -1px 10px var(--text-shadow-color),
+        -1px 1px 10px var(--text-shadow-color);
+}
+.temp {
+    font-size: 48px;
+    color: #383f54;
+    --text-shadow-color: #ffffff;
+    text-shadow: 1px -1px 0 var(--text-shadow-color),
+        1px 1px 0 var(--text-shadow-color), -1px -1px 0 var(--text-shadow-color),
+        -1px 1px 0 var(--text-shadow-color);
+    margin-bottom: 10px;
+}
+
+.weatherIcon {
+    width: 250px;
+    height: auto;
+}
+.weather {
+    font-size: 32px;
+    color: #383f54;
+    --text-shadow-color: #ffffff;
+    text-shadow: 1px -1px 0 var(--text-shadow-color),
+        1px 1px 0 var(--text-shadow-color), -1px -1px 0 var(--text-shadow-color),
+        -1px 1px 0 var(--text-shadow-color);
+    margin-bottom: 30px;
 }

@@ -1,0 +1,9 @@
+.LocationContainer {
+    font-size: 18px;
+    color: #383f54;
+    --text-shadow-color: #ffffff;
+    text-shadow: 1px -1px 0 var(--text-shadow-color),
+        1px 1px 0 var(--text-shadow-color), -1px -1px 0 var(--text-shadow-color),
+        -1px 1px 0 var(--text-shadow-color);
+    margin-bottom: 10px;
+}
