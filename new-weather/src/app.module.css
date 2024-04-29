@@ -140,7 +140,6 @@ a {
 }
 .container {
     background-image: url(./assets/images/background.jpg);
-    background-repeat: no-repeat;
     height: 100vh;
     overflow: hidden;
     width: 100vw;
@@ -165,21 +164,3 @@ ul {
 li {
     flex: 1;
 }
-
-/* .cityName {
-    color: #383f54;
-    --text-shadow-color: #ffffff;
-    text-shadow: 1px -1px 0 var(--text-shadow-color),
-        1px 1px 0 var(--text-shadow-color);
-    margin-bottom: 20px;
-    margin-top: 20px;
-    letter-spacing: 1px;
-}
-
-
-.location {
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-} */

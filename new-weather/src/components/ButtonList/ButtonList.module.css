@@ -50,8 +50,8 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 5px;
-    max-width: 60%;
-    overflow-x: scroll;
+    width: 80%;
+    overflow-x: auto;
     overflow-y: hidden;
 }
 li {

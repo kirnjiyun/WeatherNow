@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocWeatherQuery } from "../../hooks/useLocWeather";
 import { useCityWeatherQuery } from "../../hooks/useCityWeather";
+import useLocation from "../../hooks/useLocation";
 import Loading from ".././Loading/Loading";
 import styles from "./WeatherStatus.module.css";
 import { useRecoilValue } from "recoil";
@@ -42,9 +43,16 @@ function CityWeather() {
         </div>
     );
 }
-
 function LocWeather() {
-    const { data, isLoading, isError, error } = useLocWeatherQuery();
+    const { loaded, coordinates } = useLocation();
+    const { data, isLoading, isError, error } = useLocWeatherQuery(
+        coordinates.lat,
+        coordinates.lng
+    );
+
+    if (!loaded) {
+        return <Loading />;
+    }
 
     if (isLoading) {
         return <Loading />;
