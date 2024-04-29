@@ -140,6 +140,8 @@ a {
 }
 .container {
     background-image: url(./assets/images/background.jpg);
+    background-position: center;
+    background-size: cover;
     height: 100vh;
     overflow: hidden;
     width: 100vw;
@@ -160,6 +162,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 5px;
+    max-width: 350px;
 }
 li {
     flex: 1;
