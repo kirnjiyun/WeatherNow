@@ -55,7 +55,7 @@ const AddModal = () => {
                     onKeyPress={handleKeyPress}
                 />
                 <button className={styles.button} onClick={handleSearch}>
-                    추가
+                    Add
                 </button>
             </div>
             <button className={styles.closeButton} onClick={closeModal}>
