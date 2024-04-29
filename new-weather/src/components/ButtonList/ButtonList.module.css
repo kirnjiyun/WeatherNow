@@ -50,7 +50,24 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 5px;
+    max-width: 60%;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 li {
+    padding-right: 15px;
+    padding-top: 10px;
     flex: 1;
+}
+.newButtons {
+    position: relative;
+}
+.removeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: white;
 }

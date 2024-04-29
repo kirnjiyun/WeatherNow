@@ -14,3 +14,12 @@ export const lonState = atom({
     key: "lonState",
     default: 0,
 });
+
+export const selectedCityState = atom({
+    key: "selectedCityState",
+    default: null,
+});
+export const cityListState = atom({
+    key: "cityListState",
+    default: [],
+});
