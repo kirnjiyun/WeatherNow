@@ -4,7 +4,7 @@ import AddModal from "./components/Modal/AddModal";
 import ButtonList from "./components/ButtonList/ButtonList";
 import WeatherStatus from "./components/WeatherStatus/WeatherStatus";
 
-export default function App() {
+const App: React.FC = () => {
     return (
         <div className={styles.container}>
             <WeatherStatus />
@@ -12,4 +12,6 @@ export default function App() {
             <AddModal />
         </div>
     );
-}
+};
+
+export default App;
