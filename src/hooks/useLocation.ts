@@ -2,8 +2,16 @@ import { useState, useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { latState, lonState } from "../atom";
 
-const useLocation = () => {
-    const [location, setLocation] = useState({
+interface LocationState {
+    loaded: boolean;
+    coordinates: {
+        lat: number;
+        lng: number;
+    };
+}
+
+const useLocation = (): LocationState => {
+    const [location, setLocation] = useState<LocationState>({
         loaded: false,
         coordinates: { lat: 0, lng: 0 },
     });
@@ -14,7 +22,7 @@ const useLocation = () => {
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                (position) => {
+                (position: GeolocationPosition) => {
                     setLocation({
                         loaded: true,
                         coordinates: {
@@ -25,7 +33,7 @@ const useLocation = () => {
                     setLat(position.coords.latitude);
                     setLon(position.coords.longitude);
                 },
-                (error) => {
+                (error: GeolocationPositionError) => {
                     console.error(error);
                     setLocation((prevState) => ({
                         ...prevState,
@@ -44,4 +52,5 @@ const useLocation = () => {
 
     return location;
 };
+
 export default useLocation;

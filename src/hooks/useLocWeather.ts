@@ -3,7 +3,7 @@ import api from "../api/api";
 import { useRecoilValue } from "recoil";
 import { latState, lonState } from "../atom";
 
-const fetchLocWeather = async (lat, lon) => {
+const fetchLocWeather = async (lat: number, lon: number) => {
     const response = await api.get(`/weather?lat=${lat}&lon=${lon}`);
     return response.data;
 };

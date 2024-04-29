@@ -4,11 +4,20 @@ import Modal from "react-modal";
 import { modalOpenState, selectedCityState, cityListState } from "../../atom";
 import styles from "./AppModal.module.css";
 
-const AddModal = () => {
-    const [ModalOpen, setOpenModal] = useRecoilState(modalOpenState);
+Modal.setAppElement("#root");
+
+interface ModalProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
+    className?: string;
+    overlayClassName?: string;
+}
+
+const AddModal: React.FC = () => {
+    const [modalOpen, setOpenModal] = useRecoilState(modalOpenState);
     const [searchText, setSearchText] = useState("");
     const [, setSelectedCity] = useRecoilState(selectedCityState);
-    const [, setCityList] = useRecoilState(cityListState);
+    const [, setCityList] = useRecoilState<string[]>(cityListState);
 
     const closeModal = () => {
         setOpenModal(false);
@@ -26,24 +35,26 @@ const AddModal = () => {
         }
     };
 
-    const handleKeyPress = (e) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
             handleSearch();
         }
     };
 
-    const handleSearchChange = (e) => {
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
         setSearchText(inputValue);
     };
 
+    const modalProps: ModalProps = {
+        isOpen: modalOpen,
+        onRequestClose: closeModal,
+        className: styles.modalContent,
+        overlayClassName: styles.modalOverlay,
+    };
+
     return (
-        <Modal
-            isOpen={ModalOpen}
-            onRequestClose={closeModal}
-            className={styles.modalContent}
-            overlayClassName={styles.modalOverlay}
-        >
+        <Modal {...modalProps}>
             <h2 className={styles.modalTitle}>Search</h2>
             <div className={styles.searchContainer}>
                 <input
